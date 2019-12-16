@@ -1,0 +1,41 @@
+<p-toast key="details"></p-toast>
+<app-users></app-users>
+
+<div class="card bg-light" [classList]="">
+    <div class="card-header">
+        <h5 class="card-title">Member Details</h5>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="userFormControl" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                    <input formControlName="name" class="form-control" focusable
+                            placeholder="John Doe" value="{{user.name}}">
+            </div>
+            <div class="form-group">
+                <label for="addressLine1">Address</label>
+                    <input formControlName="addressLine1" class="form-control" focusable
+                            placeholder="Rua Col&eacute;gio do Sard&atilde;o" value="{{user.address.addressLine1}}">
+            </div>
+            <div class="form-group">
+                <label for="addressLine2">Address 2</label>
+                    <input formControlName="addressLine2" class="form-control" focusable
+                            placeholder="Oliveira do Douro" value="{{user.address.addressLine2}}">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="postalCode">Zip</label>
+                    <input formControlName="postalCode" class="form-control" focusable
+                            placeholder="4400-123" value="{{user.address.postalCode}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="postalCodeCity">City</label>
+                    <input formControlName="postalCodeCity" class="form-control" focusable
+                            placeholder="Vila Nova de Gaia" value="{{user.address.postalCodeCity}}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addMember()">Add</button>
+            <button type="submit" class="btn btn-secondary" [routerLink]="['/users']" >Close</button>
+        </form>
+    </div>
+</div>
